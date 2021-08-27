@@ -42,4 +42,6 @@ module.exports = (app, passport) => {
   //後臺編輯一筆餐廳資料
   app.get('/admin/restaurants/:id/edit', authenticatedAdmin, adminController.editRestaurant)
   app.put('/admin/restaurants/:id', authenticatedAdmin, adminController.putRestaurant)
+  //後臺刪除一筆餐廳資料
+  app.delete('/admin/restaurants/:id', authenticatedAdmin, adminController.deleteRestaurant)
 }
