@@ -34,7 +34,9 @@ module.exports = (app, passport) => {
   app.get('/signin', userController.signInPage)
   app.post('/signin', passport.authenticate('local', { failureRedirect: '/signin', failureFlash: true }), userController.signIn)
   app.get('/logout', userController.logout)
-  //後台新增一筆餐廳清單
+  //後台新增一筆餐廳資料
   app.get('/admin/restaurants/create', authenticatedAdmin, adminController.createRestaurant)
   app.post('/admin/restaurants', authenticatedAdmin, adminController.postRestaurant)
+  //後台瀏覽一筆餐廳資料
+  app.get('/admin/restaurants/:id', authenticatedAdmin, adminController.getRestaurant)
 }
