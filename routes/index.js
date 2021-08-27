@@ -30,6 +30,12 @@ module.exports = (app, passport) => {
 
  // 在 /admin/restaurants 底下則交給 adminController.getRestaurants 處理
  app.get('/admin/restaurants', authenticatedAdmin, adminController.getRestaurants)
+
+  //在後台瀏覽使用者
+  app.get('/admin/users', authenticatedAdmin, adminController.getUsers)
+  //在後台更改使用者權限
+  app.put('/admin/users/:id/toggleAdmin', authenticatedAdmin, adminController.toggleAdmin)
+
 //後台新增一筆餐廳資料
   app.get('/admin/restaurants/create', authenticatedAdmin, adminController.createRestaurant)
   app.post('/admin/restaurants', authenticatedAdmin, upload.single('image'), adminController.postRestaurant)
