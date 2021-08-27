@@ -39,4 +39,7 @@ module.exports = (app, passport) => {
   app.post('/admin/restaurants', authenticatedAdmin, adminController.postRestaurant)
   //後台瀏覽一筆餐廳資料
   app.get('/admin/restaurants/:id', authenticatedAdmin, adminController.getRestaurant)
+  //後臺編輯一筆餐廳資料
+  app.get('/admin/restaurants/:id/edit', authenticatedAdmin, adminController.editRestaurant)
+  app.put('/admin/restaurants/:id', authenticatedAdmin, adminController.putRestaurant)
 }
