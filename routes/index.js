@@ -49,7 +49,8 @@ module.exports = (app, passport) => {
   app.delete('/admin/restaurants/:id', authenticatedAdmin, adminController.deleteRestaurant)
   //後臺瀏覽類別資料
   app.get('/admin/categories', authenticatedAdmin, categoryController.getCategories)
-
+  //後台新增類別資料
+  app.post('/admin/categories', authenticatedAdmin, categoryController.postCategory)
 
  //註冊
   app.get('/signup', userController.signUpPage)
