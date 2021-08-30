@@ -47,13 +47,15 @@ module.exports = (app, passport) => {
   app.put('/admin/restaurants/:id', authenticatedAdmin, upload.single('image'), adminController.putRestaurant)
   //後臺刪除一筆餐廳資料
   app.delete('/admin/restaurants/:id', authenticatedAdmin, adminController.deleteRestaurant)
-  //後臺瀏覽類別資料
+  //後臺瀏覽所有類別資料
   app.get('/admin/categories', authenticatedAdmin, categoryController.getCategories)
-  //後台新增類別資料
+  //後台新增一筆類別資料
   app.post('/admin/categories', authenticatedAdmin, categoryController.postCategory)
-  //後臺編輯類別資料
+  //後臺編輯一筆類別資料
   app.get('/admin/categories/:id', authenticatedAdmin, categoryController.getCategories)
   app.put('/admin/categories/:id', authenticatedAdmin, categoryController.putCategory)
+  //後臺刪除一筆類別資料
+  app.delete('/admin/categories/:id', authenticatedAdmin, categoryController.deleteCategory)
  //註冊
   app.get('/signup', userController.signUpPage)
   app.post('/signup', userController.signUp)
