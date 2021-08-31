@@ -3,6 +3,7 @@ const restController = require('../controllers/restController.js')
 const adminController = require('../controllers/adminController.js')
 const userController = require('../controllers/userController.js')
 const categoryController = require('../controllers/categoryController.js')
+const commentController = require('../controllers/commentController.js')
 const multer = require('multer')
 const upload = multer({ dest: 'temp/' })
 
@@ -29,6 +30,8 @@ module.exports = (app, passport) => {
   //在前台瀏覽一筆餐廳資料
   app.get('/restaurants/:id', authenticated, restController.getRestaurant)
 
+  //在前台留下一筆餐廳資料評論資料
+  app.post('/comments', authenticated, commentController.postComment)
   // 連到 /admin 頁面就轉到 /admin/restaurants
  app.get('/admin', authenticatedAdmin, (req, res) => res.redirect('/admin/restaurants'))
 
