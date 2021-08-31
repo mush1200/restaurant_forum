@@ -32,6 +32,8 @@ module.exports = (app, passport) => {
 
   //在前台留下一筆餐廳資料評論資料
   app.post('/comments', authenticated, commentController.postComment)
+  //權限者可在前台刪除一筆餐廳評論資料
+  app.delete('/comments/:id', authenticatedAdmin, commentController.deleteComment)
   // 連到 /admin 頁面就轉到 /admin/restaurants
  app.get('/admin', authenticatedAdmin, (req, res) => res.redirect('/admin/restaurants'))
 
