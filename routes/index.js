@@ -34,6 +34,11 @@ module.exports = (app, passport) => {
   app.post('/comments', authenticated, commentController.postComment)
   //權限者可在前台刪除一筆餐廳評論資料
   app.delete('/comments/:id', authenticatedAdmin, commentController.deleteComment)
+  //在前台瀏覽個人基本資料
+  app.get('/users/:id', authenticated, userController.getUser)
+  //在前台編輯個人基本資料
+  app.get('/users/:id/edit', authenticated, userController.editUser)
+  app.put('/users/:id', authenticated, upload.single('image'),userController.putUser)
   // 連到 /admin 頁面就轉到 /admin/restaurants
  app.get('/admin', authenticatedAdmin, (req, res) => res.redirect('/admin/restaurants'))
 
