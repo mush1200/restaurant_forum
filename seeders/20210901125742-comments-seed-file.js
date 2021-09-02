@@ -11,7 +11,7 @@ module.exports = {
           updatedAt: new Date(),
           UserId: Math.floor(Math.random() * 3) * 10 + 5,
           // UserId: Math.floor(Math.random() * 3) + 1,
-          RestaurantId: Math.floor(Math.random() * 50) * 10 + 10
+          RestaurantId: Math.floor(Math.random() * 50) * 10 + 5
           // RestaurantId: Math.floor(Math.random() * 50) + 1
         })
       ), {})
