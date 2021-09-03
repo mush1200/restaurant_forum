@@ -42,6 +42,10 @@ module.exports = (app, passport) => {
   //在前台編輯個人基本資料
   app.get('/users/:id/edit', authenticated, userController.editUser)
   app.put('/users/:id', authenticated, upload.single('image'),userController.putUser)
+
+  //在前台把一筆餐廳加入我的最愛、移除我的最愛
+  app.post('/favorite/:restaurantId', authenticated, userController.addFavorite)
+  app.delete('/favorite/:restaurantId', authenticated, userController.removeFavorite)
   // 連到 /admin 頁面就轉到 /admin/restaurants
  app.get('/admin', authenticatedAdmin, (req, res) => res.redirect('/admin/restaurants'))
 
