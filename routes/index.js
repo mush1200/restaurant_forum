@@ -26,7 +26,8 @@ module.exports = (app, passport) => {
 
  //在前台瀏覽全部餐廳清單
   app.get('/restaurants', authenticated, restController.getRestaurants)
-
+  //在前台顯示最新評論
+  app.get('/restaurants/feeds', authenticated, restController.getFeeds)
   //在前台瀏覽一筆餐廳資料
   app.get('/restaurants/:id', authenticated, restController.getRestaurant)
 
