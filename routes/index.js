@@ -30,6 +30,8 @@ module.exports = (app, passport) => {
   app.get('/restaurants/feeds', authenticated, restController.getFeeds)
   //在前台瀏覽一筆餐廳資料
   app.get('/restaurants/:id', authenticated, restController.getRestaurant)
+  //在前台瀏覽一筆餐廳資料的dashboard
+  app.get('/restaurants/:id/dashboard', authenticated, restController.getDashboard)
 
   //在前台留下一筆餐廳資料評論資料
   app.post('/comments', authenticated, commentController.postComment)
