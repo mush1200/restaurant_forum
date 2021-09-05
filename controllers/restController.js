@@ -105,8 +105,25 @@ const restController = {
           restaurant: restaurant.toJSON(),
           commentCount: comments.count
         })
-    })
-        
+    })     
   },
+  getTopRestaurant: (req, res) => {
+    return Restaurant.findAll({
+      include: [
+        { model: User, as: 'FavoritedUsers' }
+      ]
+    })
+      .then(restaurants => {
+        restaurants = restaurants.map(restaurant => ({
+          ...restaurant.dataValues,
+          description: restaurant.description.slice(0, 50),
+          favoriteCount: restaurant.FavoritedUsers.length,
+          isFavorited: restaurant.FavoritedUsers.map(d => d.id).includes(helpers.getUser(req).id)
+        }))
+        restaurants.sort((a, b) => b.favoriteCount - a.favoriteCount)
+        restaurants = restaurants.slice(0, 10)
+        return res.render('topRestaurant', { restaurants })
+      })
+  }
 }
 module.exports = restController
