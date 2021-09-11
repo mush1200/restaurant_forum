@@ -21,5 +21,7 @@ router.delete('/admin/restaurants/:id', adminController.deleteRestaurant)
 router.get('/admin/categories', categoryController.getCategories)
 //後台新增一筆類別資料
 router.post('/admin/categories', categoryController.postCategory)
+//後臺編輯一筆類別資料
+router.put('/admin/categories/:id', categoryController.putCategory)
 
 module.exports = router
