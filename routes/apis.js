@@ -13,7 +13,7 @@ router.get('/admin/restaurants', adminController.getRestaurants)
 router.post('/admin/restaurants', upload.single('image'), adminController.postRestaurant)
 //後台瀏覽個別餐廳
 router.get('/admin/restaurants/:id', adminController.getRestaurant)
-
+router.put('/admin/restaurants/:id', upload.single('image'), adminController.putRestaurant)
 //後臺刪除一筆餐廳資料
 router.delete('/admin/restaurants/:id', adminController.deleteRestaurant)
 
