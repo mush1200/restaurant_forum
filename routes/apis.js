@@ -23,5 +23,7 @@ router.get('/admin/categories', categoryController.getCategories)
 router.post('/admin/categories', categoryController.postCategory)
 //後臺編輯一筆類別資料
 router.put('/admin/categories/:id', categoryController.putCategory)
+//後臺刪除一筆類別資料
+router.delete('/admin/categories/:id', categoryController.deleteCategory)
 
 module.exports = router
